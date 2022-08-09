@@ -1,4 +1,4 @@
-package com.example.tema6;
+package Application;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
