@@ -1,5 +1,7 @@
 package Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,9 +23,11 @@ public class Patient {
     @NotNull
     String cnp;
 
+    @JsonManagedReference
     @OneToMany
     List<Visit> visitList = new ArrayList<>();
 
+    @JsonBackReference
     @ManyToOne
     Doctor doctor;
 }
