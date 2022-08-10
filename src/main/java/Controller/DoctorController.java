@@ -34,6 +34,7 @@ public class DoctorController {
         return doctorService.getDoctorById(id);
     }
 
+    // Method to get a doctorDTO by id
     @GetMapping("/dto/{id}")
     public DoctorDTO getDoctorByIdDTO(@PathVariable Integer id) {
         return doctorService.getDoctorByIdDTO(id);
