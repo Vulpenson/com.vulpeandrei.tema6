@@ -2,6 +2,7 @@ package Controller;
 
 import DTO.DoctorDTO;
 import Exception.NoDoctorFoundException;
+import Exception.NoDoctorsWithInsertedSpecialtyException;
 import Model.Doctor;
 import Model.Specialty;
 import Service.DoctorService;
@@ -54,7 +55,8 @@ public class DoctorController {
 
     // Method to get doctors by specialty
     @GetMapping("all/{specialty}")
-    public List<Doctor> getDoctorsBySpecialty(@PathVariable Specialty specialty) {
+    public List<Doctor> getDoctorsBySpecialty(@PathVariable Specialty specialty)
+            throws NoDoctorsWithInsertedSpecialtyException {
         return doctorService.getDoctorsBySpecialty(specialty);
     }
 

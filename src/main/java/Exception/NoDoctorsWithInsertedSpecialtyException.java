@@ -1,7 +1,7 @@
 package Exception;
 
 public class NoDoctorsWithInsertedSpecialtyException extends Exception {
-    NoDoctorsWithInsertedSpecialtyException() {
+    public NoDoctorsWithInsertedSpecialtyException() {
         super("The specialty introduced does not have any doctors!");
     }
 }

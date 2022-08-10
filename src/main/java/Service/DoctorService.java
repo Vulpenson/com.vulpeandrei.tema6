@@ -1,6 +1,7 @@
 package Service;
 
 import DTO.DoctorDTO;
+import Exception.NoDoctorsWithInsertedSpecialtyException;
 import Mapper.DoctorMapper;
 import Model.Doctor;
 import Model.Patient;
@@ -65,8 +66,13 @@ public class DoctorService {
     }
 
     // Method to get all doctors of a certain specialty
-    public List<Doctor> getDoctorsBySpecialty(Specialty specialty) {
-        return doctorRepository.getAllBySpecialty(specialty);
+    public List<Doctor> getDoctorsBySpecialty(Specialty specialty) throws NoDoctorsWithInsertedSpecialtyException {
+        if(doctorRepository.getAllBySpecialty(specialty).isEmpty()) {
+            throw new NoDoctorsWithInsertedSpecialtyException();
+        } else {
+            return doctorRepository.getAllBySpecialty(specialty);
+        }
+//        return doctorRepository.getAllBySpecialty(specialty);
     }
 
     // Method to get all doctorsDTO of a certain specialty
