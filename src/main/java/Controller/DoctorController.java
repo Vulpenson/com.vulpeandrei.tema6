@@ -28,6 +28,17 @@ public class DoctorController {
         return doctorService.getAllDoctorsDTOs();
     }
 
+    // Method to get a doctor by id
+    @GetMapping("{id}")
+    public Doctor getDoctorById(@PathVariable Integer id) {
+        return doctorService.getDoctorById(id);
+    }
+
+    @GetMapping("/dto/{id}")
+    public DoctorDTO getDoctorByIdDTO(@PathVariable Integer id) {
+        return doctorService.getDoctorByIdDTO(id);
+    }
+
     // Method to add a doctor
     @PostMapping("add")
     public void addDoctor(@RequestBody Doctor doctor) {

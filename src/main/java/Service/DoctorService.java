@@ -35,6 +35,16 @@ public class DoctorService {
                 .collect(Collectors.toList());
     }
 
+    // Method to get a doctor by id
+    public Doctor getDoctorById(Integer id) {
+        return doctorRepository.findById(id).get();
+    }
+
+    // Method to get a doctorDTO by id
+    public DoctorDTO getDoctorByIdDTO(Integer id) {
+        return doctorMapper.toDoctorDTO(doctorRepository.findById(id).get());
+    }
+
     // Method to add a doctor
     public void addDoctor(Doctor doctor) {
         doctorRepository.save(doctor);
